@@ -14,16 +14,18 @@ def translate(img,x,y):
 
     return cv2.warpAffine(img,transMat,dimensions)
 
-
+# Shifting image by 100 pixels in both directions.
+# Will leave black spaces in empty pixels
 translated = translate(img,100,100)
 cv2.imshow('translated',translated)
 
 #Rotation
+# rotates the image by a given angle
 def rotate(img, angle, rotPoint=None):
     (height,width)=img.shape[:2]
 
     if rotPoint is None:
-        rotPoint=(width//2,height//2)
+        rotPoint=(width//2,height//2) # Choosing origin of image
     
     rotMat = cv2.getRotationMatrix2D(rotPoint,angle,scale=1.0)
     dimensions =(width,height)
@@ -36,6 +38,10 @@ cv2.imshow('Rotate',rotated)
 
 #flipping
 flip=cv2.flip(img,-1)
+
+# Show is
+cv2.imshow('Flip!', flip)
+
 #-1 flips vertically and horizonatally 
 
 '''
@@ -48,6 +54,8 @@ flip=cv2.flip(img,-1)
 '''
 
 #cropping 
+# Crops section decided by these to do it
 cropped = img[200:400,200:400]
+cv2.imshow('crop', cropped)
 
 cv2.waitKey(0)

@@ -2,8 +2,8 @@
 import cv2
 import numpy as np
 
-blank =np.zeros((500,500,3),dtype='uint8')
-#define (height,width,number of colour channels)
+blank =np.zeros((500,500,3),dtype='uint8')          # Variable is a set of zeros, acting as a canvas
+#define (height,width,number of colour channels)    
 #dtype is data type unsigned integer 8
 #cv2.imshow('Blank',blank)
 
@@ -11,11 +11,11 @@ blank =np.zeros((500,500,3),dtype='uint8')
 blank[:]=0,255,0 #green
 #cv2.imshow('Green',blank)
 
-blank[200:300,300:400]=255,0,0 #smaller blue square
+blank[200:300,300:400]=255,0,0 #smaller blue square  # This is y,x instead of x,y
 #cv2.imshow('Blue',blank)
 
 #draw rectangle
-cv2.rectangle(blank,(0,0),(250,250),(0,0,255),thickness=cv2.FILLED)
+cv2.rectangle(blank,(0,0),(250,250),(0,200,255),thickness=cv2.FILLED) # OPENCV function to draw a rectangle. USES BGR instead of RGB
 #cv2.FILLED fills in your shape
 #thickness=-1 also works
 cv2.imshow('Rectangle',blank)

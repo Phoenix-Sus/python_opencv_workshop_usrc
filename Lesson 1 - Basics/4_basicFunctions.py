@@ -3,7 +3,7 @@ import cv2
 img = cv2.imread('..\Photos\cat.jpg')
 cv2.imshow('Cat', img)
 
-#convert to greyscale
+#convert to greyscale  # we will learn more about this lata
 greyscale=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 cv2.imshow('Grey',greyscale)
 
@@ -13,11 +13,13 @@ blur=cv2.GaussianBlur(img,(9,9),cv2.BORDER_DEFAULT)
 cv2.imshow('Blur',blur)
 
 #canny
+#determines edges using built-in algorithm
 canny=cv2.Canny(img,125,200)
 cv2.imshow('Canny',canny)
 
 #dilate
 #used to accentuate edge cases
+#makes lines in image sharper, thicker
 dilated=cv2.dilate(canny,(3,3),iterations=1)
 cv2.imshow('Dilated',dilated)
 
@@ -27,6 +29,7 @@ eroded=cv2.erode(dilated,(3,3),iterations=1)
 cv2.imshow('Eroded',eroded)
 
 #resize
+# give the function new dimensions for an image.
 resized=cv2.resize(img,(500,500))
 cv2.imshow('Resize',resized)
 

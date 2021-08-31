@@ -13,6 +13,12 @@ def rescale_frame(frame,scale=0.75):
 
     return cv2.resize(frame,dimensions,interpolation =cv2.INTER_AREA)
 
+def rescale_frame(frame,scale=0.75):
+    #works for images, video and live video
+
+    # Should be able to halve the number of pixels, hence, making it smaller
+    return frame[:2:][:2:][:]
+
 #cv2.waitKey(0)
 
 
